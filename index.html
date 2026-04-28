@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For My Special One ❤️</title>
+<title>For My Famoo Jaan ❤️</title>
 
 <style>
 *{
@@ -23,19 +23,18 @@ body{
 .header{
   position:sticky;
   top:0;
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,0.5);
   backdrop-filter: blur(10px);
-  color:#fff;
   text-align:center;
-  padding:15px;
+  padding:16px;
   font-weight:600;
   font-size:16px;
   border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-/* CHAT BOX */
+/* CHAT */
 .chat-box{
-  height:45vh;
+  height:40vh;
   overflow-y:auto;
   padding:12px;
   display:flex;
@@ -45,26 +44,23 @@ body{
 
 /* MESSAGES */
 .msg{
-  max-width:75%;
-  padding:10px 14px;
+  max-width:80%;
+  padding:12px 14px;
   border-radius:18px;
   font-size:14px;
   line-height:1.4;
   animation:fadeIn 0.3s ease-in;
-  box-shadow:0 5px 10px rgba(0,0,0,0.2);
 }
 
 .sent{
-  background: linear-gradient(135deg,#00c6ff,#0072ff);
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
   align-self:flex-end;
-  border-bottom-right-radius:5px;
   color:white;
 }
 
 .received{
   background:rgba(255,255,255,0.1);
   align-self:flex-start;
-  border-bottom-left-radius:5px;
   color:#fff;
 }
 
@@ -78,39 +74,40 @@ body{
 /* LOVE SECTION */
 .love{
   background:rgba(255,255,255,0.08);
-  margin:12px;
-  padding:18px;
-  border-radius:18px;
-  backdrop-filter: blur(10px);
+  margin:14px;
+  padding:22px;
+  border-radius:20px;
+  backdrop-filter: blur(12px);
   text-align:center;
   border:1px solid rgba(255,255,255,0.1);
 }
 
 .love h2{
+  font-size:20px;
   color:#ff4d6d;
   margin-bottom:10px;
 }
 
 .love p{
-  font-size:14px;
-  margin:6px 0;
+  font-size:16px;
+  line-height:1.7;
+  margin:10px 0;
   color:#f1f1f1;
 }
 
 /* GALLERY */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:8px;
-  margin-top:12px;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:15px;
 }
 
 .gallery img{
   width:100%;
-  height:120px;
-  border-radius:14px;
+  height:220px;
+  border-radius:16px;
   object-fit:cover;
-  box-shadow:0 5px 10px rgba(0,0,0,0.3);
 }
 
 /* HEARTS */
@@ -133,25 +130,39 @@ body{
 
 /* MOBILE */
 @media(max-width:600px){
-  .chat-box{height:40vh;}
-  .gallery img{height:100px;}
+  .chat-box{height:38vh;}
+  .love p{font-size:15px;}
+  .gallery img{height:180px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">💙 A Message From My Heart 💙</div>
+<div class="header">💙 A Message for My Famoo Jaan (Fatima) 💙</div>
 
 <div class="chat-box" id="chat"></div>
 
 <div class="love">
   <h2>💖 To My Special Person 💖</h2>
 
-  <p>You are not just someone… you are my peace, my smile, my everything ❤️</p>
-  <p>I know I made mistakes… and I am truly sorry for that 🥺</p>
-  <p>Every moment without you feels incomplete 😔</p>
-  <p>Please forgive me… I really miss you and I really care for you 💔</p>
+  <p>Hey Fatima… my Famoo Jaan ❤️</p>
+
+  <p>I miss you more than words can explain 🥺</p>
+
+  <p>You are my peace, my comfort, my happiness… my everything 💙</p>
+
+  <p>I know I made mistakes and hurt you… and I truly regret it 💔</p>
+
+  <p>If I could go back, I would fix everything just to see your smile again 😊</p>
+
+  <p>Life feels empty without you… like something very important is missing 😔</p>
+
+  <p>Please don’t stay angry with me Famoo Jaan 🥺</p>
+
+  <p>I just want us to talk again… I just want you back ❤️</p>
+
+  <p>I really love you Fatima 💙</p>
 
   <div class="gallery">
     <img src="pic1.jpg">
@@ -161,13 +172,13 @@ body{
 
 <script>
 const messages = [
-  "Hey... it's me 🥺",
+  "Hey Fatima 🥺",
+  "My Famoo Jaan...",
+  "I really miss you 💔",
   "I know you're upset...",
-  "And I understand why 💔",
-  "But I am really sorry ❤️",
-  "You mean everything to me 💙",
-  "I miss your smile 😔",
-  "Please talk to me again... 🥺"
+  "And I understand it 😔",
+  "But I am truly sorry ❤️",
+  "Please talk to me again 🥺"
 ];
 
 let i = 0;
@@ -197,7 +208,7 @@ function sendMsg(){
       i++;
       setTimeout(sendMsg,1200);
 
-    },900);
+    },800);
 
   } else {
     createHearts();
