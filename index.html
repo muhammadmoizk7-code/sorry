@@ -15,8 +15,8 @@
 
 body{
   background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  overflow-x:hidden;
   color:white;
+  overflow-x:hidden;
 }
 
 /* HEADER */
@@ -27,46 +27,44 @@ body{
   backdrop-filter: blur(10px);
   text-align:center;
   padding:16px;
-  font-weight:600;
   font-size:16px;
-  border-bottom:1px solid rgba(255,255,255,0.1);
+  font-weight:600;
 }
 
 /* CHAT */
 .chat-box{
-  height:40vh;
+  height:42vh;
   overflow-y:auto;
   padding:12px;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:12px;
 }
 
-/* MESSAGES */
+/* BIGGER MESSAGES */
 .msg{
-  max-width:80%;
-  padding:12px 14px;
+  max-width:85%;
+  padding:14px 16px;
   border-radius:18px;
-  font-size:14px;
-  line-height:1.4;
-  animation:fadeIn 0.3s ease-in;
+  font-size:16px;   /* 👈 BIGGER TEXT FIX */
+  line-height:1.6;
+  animation:fadeIn 0.4s ease-in;
+  word-wrap:break-word;
 }
 
 .sent{
   background:linear-gradient(135deg,#00c6ff,#0072ff);
   align-self:flex-end;
-  color:white;
 }
 
 .received{
-  background:rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.12);
   align-self:flex-start;
-  color:#fff;
 }
 
 /* typing */
 .typing{
-  font-size:12px;
+  font-size:13px;
   color:#ccc;
   font-style:italic;
 }
@@ -79,7 +77,6 @@ body{
   border-radius:20px;
   backdrop-filter: blur(12px);
   text-align:center;
-  border:1px solid rgba(255,255,255,0.1);
 }
 
 .love h2{
@@ -90,9 +87,8 @@ body{
 
 .love p{
   font-size:16px;
-  line-height:1.7;
   margin:10px 0;
-  color:#f1f1f1;
+  line-height:1.7;
 }
 
 /* GALLERY */
@@ -110,17 +106,18 @@ body{
   object-fit:cover;
 }
 
-/* HEARTS */
+/* FLOATING HEARTS */
 .heart{
   position:fixed;
-  bottom:0;
-  font-size:18px;
+  bottom:-20px;
+  font-size:20px;
   animation: floatUp 6s linear infinite;
+  opacity:0.8;
 }
 
 @keyframes floatUp{
   0%{transform:translateY(0); opacity:1;}
-  100%{transform:translateY(-100vh); opacity:0;}
+  100%{transform:translateY(-110vh); opacity:0;}
 }
 
 @keyframes fadeIn{
@@ -130,39 +127,26 @@ body{
 
 /* MOBILE */
 @media(max-width:600px){
-  .chat-box{height:38vh;}
+  .chat-box{height:40vh;}
+  .msg{font-size:15px;}
   .love p{font-size:15px;}
-  .gallery img{height:180px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">💙 A Message for My Famoo Jaan (Fatima) 💙</div>
+<div class="header">💙 For My Famoo Jaan (Fatima) 💙</div>
 
 <div class="chat-box" id="chat"></div>
 
 <div class="love">
-  <h2>💖 To My Special Person 💖</h2>
+  <h2>💖 My Heart is Yours 💖</h2>
 
-  <p>Hey Fatima… my Famoo Jaan ❤️</p>
-
-  <p>I miss you more than words can explain 🥺</p>
-
-  <p>You are my peace, my comfort, my happiness… my everything 💙</p>
-
-  <p>I know I made mistakes and hurt you… and I truly regret it 💔</p>
-
-  <p>If I could go back, I would fix everything just to see your smile again 😊</p>
-
-  <p>Life feels empty without you… like something very important is missing 😔</p>
-
-  <p>Please don’t stay angry with me Famoo Jaan 🥺</p>
-
-  <p>I just want us to talk again… I just want you back ❤️</p>
-
-  <p>I really love you Fatima 💙</p>
+  <p>Fatima… my Famoo Jaan ❤️</p>
+  <p>You are my peace, my smile, my everything 🥺</p>
+  <p>I know I hurt you and I truly regret it 💔</p>
+  <p>Please forgive me… I miss you so much 😔</p>
 
   <div class="gallery">
     <img src="pic1.jpg">
@@ -173,11 +157,11 @@ body{
 <script>
 const messages = [
   "Hey Fatima 🥺",
-  "My Famoo Jaan...",
+  "My Famoo Jaan ❤️",
   "I really miss you 💔",
   "I know you're upset...",
-  "And I understand it 😔",
-  "But I am truly sorry ❤️",
+  "But I understand you 😔",
+  "I am really sorry ❤️",
   "Please talk to me again 🥺"
 ];
 
@@ -202,11 +186,10 @@ function sendMsg(){
       msg.innerText = messages[i];
 
       chat.appendChild(msg);
-
       chat.scrollTop = chat.scrollHeight;
 
       i++;
-      setTimeout(sendMsg,1200);
+      setTimeout(sendMsg,1100);
 
     },800);
 
@@ -217,15 +200,19 @@ function sendMsg(){
 
 window.onload = sendMsg;
 
+/* ❤️ LIVE HEARTS (AUTO CONTINUOUS) */
 function createHearts(){
-  for(let i=0;i<40;i++){
+  setInterval(()=>{
     let heart = document.createElement("div");
     heart.className = "heart";
-    heart.innerHTML = "❤️";
+    heart.innerHTML = ["❤️","💖","💕","💗"][Math.floor(Math.random()*4)];
     heart.style.left = Math.random()*100 + "vw";
-    heart.style.animationDuration = (Math.random()*4+3)+"s";
+    heart.style.fontSize = (Math.random()*10+15)+"px";
+    heart.style.animationDuration = (Math.random()*3+3)+"s";
     document.body.appendChild(heart);
-  }
+
+    setTimeout(()=>heart.remove(),6000);
+  },300);
 }
 </script>
 
